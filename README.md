@@ -62,7 +62,7 @@ EOF  help  quit
 $
 ```
 
-<big><strong>Authors📜</strong></big>
+<h4>Authors📜</h4>
 <br>
 Baasit Bolaji Ayomiposi - <a href="https://github.com/Toby16">Toby16</a>
 <br>
