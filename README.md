@@ -14,6 +14,7 @@
 <p>It is a custom shell or command-line interface (CLI) that allows developers to interact with the website's database directly.<p>
 <p>The console should provide a set of commands that developers can use to manipulate data in the database, such as creating new listings, updating existing ones, deleting listings, and querying for information about specific listings<p/>
 <p>It is built using the Python3 programming language</p>
+<hr>
 
 <strong>Environment:</strong>
 * This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.10.6)
