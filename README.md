@@ -17,7 +17,7 @@
 
 <strong>Environment:</strong>
 <br>
-This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.10.6)
+* This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.10.6)
 <br><br>
 <strong>Installation:</strong>
 <br>
