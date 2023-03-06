@@ -28,7 +28,7 @@
 <hr>
 
 <strong>Examples:</strong>
-<em>In interactive mode:</em>
+* <em>In interactive mode:</em>
 ```bash
 $ ./console.py
 (hbnb) help
