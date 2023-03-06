@@ -15,14 +15,13 @@
 <p>The console should provide a set of commands that developers can use to manipulate data in the database, such as creating new listings, updating existing ones, deleting listings, and querying for information about specific listings<p/>
 <p>It is built using the Python3 programming language</p>
 
-<form>
-    <fieldset>
-        <legend><strong>Installation</strong></legend>
-        This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.10.6)
-    </fieldset>
-    <br>
-    <fieldset>
-        <legend><strong>How to start it:</strong></legend>
-        
-    </fieldset>
-</form>
+<strong>Environment:</strong>
+<br>
+This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.10.6)
+<br><br>
+<strong>Installation:</strong>
+<br>
+* Clone this repository: `git clone "https://github.com/Toby16/AirBnB_clone.git"`
+* Access AirBnb directory: `cd AirBnB_clone`
+* Run hbnb(interactively): `./console` and enter command
+* Run hbnb(non-interactively): `echo "<command>" | ./console.py`
