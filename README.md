@@ -25,7 +25,18 @@
 * Access AirBnb directory: `cd AirBnB_clone`
 * Run hbnb(interactively): `./console` and enter command
 * Run hbnb(non-interactively): `echo "<command>" | ./console.py`
-<br>
+<hr>
 
 <strong>Examples:</strong>
-
+<em>In interactive mode:</em>
+```bash
+$ ./console.py
+(hbnb) help
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+(hbnb)
+(hbnb) quit
+$
+```
