@@ -62,7 +62,7 @@ EOF  help  quit
 $
 ```
 
-## Authors📜
-
-    Baasit Bolaji Ayomiposi - <a href="https://github.com/Toby16">Toby16</a>
-    Ezra Christopher Mallo - <a href="https://github.com/Ezra-Mallo">Ezra-Mallo</a>
+<strong>Authors📜</strong>
+<br>
+Baasit Bolaji Ayomiposi - <a href="https://github.com/Toby16">Toby16</a>
+Ezra Christopher Mallo - <a href="https://github.com/Ezra-Mallo">Ezra-Mallo</a>
