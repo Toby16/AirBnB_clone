@@ -17,6 +17,12 @@
 
 <form>
     <fieldset>
+        <legend><strong>Installation</strong></legend>
+        This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.10.6)
+    </fieldset>
+    <br>
+    <fieldset>
         <legend><strong>How to start it:</strong></legend>
+        
     </fieldset>
 </form>
