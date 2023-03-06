@@ -63,7 +63,6 @@ $
 ```
 
 <h4>Authors📜</h4>
-<br>
 Baasit Bolaji Ayomiposi - <a href="https://github.com/Toby16">Toby16</a>
 <br>
 Ezra Christopher Mallo - <a href="https://github.com/Ezra-Mallo">Ezra-Mallo</a>
