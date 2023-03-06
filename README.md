@@ -2,6 +2,6 @@
 
 <img src="https://github.com/Toby16/AirBnB_clone/blob/main/assets/hbnb_logo.png" alt="HolbertonBnB logo">
 
-## <div style="aligh: center">AirBnB Clone</div>
+## AirBnB Clone
 This is the first step towards building the AirBnB clone. It collectively covers the fundamental concepts of higher level programming.
 
