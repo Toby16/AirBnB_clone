@@ -18,6 +18,7 @@
 
 <strong>Environment:</strong>
 * This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.10.6)
+<hr>
 
 <strong>Installation:</strong>
 * Clone this repository: `git clone "https://github.com/Toby16/AirBnB_clone.git"`
