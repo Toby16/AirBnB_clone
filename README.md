@@ -16,13 +16,15 @@
 <p>It is built using the Python3 programming language</p>
 
 <strong>Environment:</strong>
-<br>
 * This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.10.6)
 <br>
 
 <strong>Installation:</strong>
-<br>
 * Clone this repository: `git clone "https://github.com/Toby16/AirBnB_clone.git"`
 * Access AirBnb directory: `cd AirBnB_clone`
 * Run hbnb(interactively): `./console` and enter command
 * Run hbnb(non-interactively): `echo "<command>" | ./console.py`
+<br>
+
+<strong>Examples:</strong>
+
