@@ -4,4 +4,4 @@
 
 ## AirBnB Clone
 This is the first step towards building the AirBnB clone. It collectively covers the fundamental concepts of higher level programming.
-
+The project involves creating a clone of the <a href="https://www.airbnb.com/">Airbnb website</a>, which is an online platform that enables people to book unique accommodations around the world. The website allows users to search for various types of accommodations, such as apartments, villas, hotels, and hostels, and book them online.
