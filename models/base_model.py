@@ -27,10 +27,11 @@ class BaseModel:
                                        self.id, self.__dict__)
 
     def to_dict(self):
-        self.__dict__.update({"__class__": self.__class__.__name__})
-        self.__dict__["updated_at"] = self.updated_at.isoformat()
-        self.__dict__["created_at"] = self.created_at.isoformat()
-        return self.__dict__
+        dict_val = self.__dict__.copy()
+        dict_val.update({"__class__": self.__class__.__name__})
+        dict_val["updated_at"] = self.updated_at.isoformat()
+        dict_val["created_at"] = self.created_at.isoformat()
+        return dict_val
 
 
 if __name__ == "__main__":
@@ -46,3 +47,6 @@ if __name__ == "__main__":
     for key in my_model_json.keys():
         print("\t{}: ({}) - {}".format(key, type(my_model_json[key]),
                                        my_model_json[key]))
+
+    print()
+    print(my_model)
