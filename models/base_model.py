@@ -87,11 +87,6 @@ if __name__ == "__main__":
     my_model.my_number = 89
     print(my_model.id)
     print(my_model)
-    """
-    I might be having a problem with time
-    The time doesn't update unless i use 'my_model.save'
-    """
-    # my_model.save()
     print()
     print(my_model)
     print()
