@@ -9,10 +9,6 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
-    def __init__(self):
-        """Initialization"""
-        pass
-
     def all(self):
         """returns the dictionary __objects"""
         return (FileStorage.__objects)
@@ -38,7 +34,10 @@ class FileStorage:
         """deserializes the JSON file to __objects
         (only if the JSON file (__file_path) exists; otherwise, do nothing.
         If the file doesn’t exist, no exception should be raised)"""
-        with open(FileStorage.__file_path, "r") as fl:
-            my_obj = json.load(fl)
-            for key, value in my_obj.items():
-                self.__objects[key] = BaseModel(**value)
+        try:
+            with open(FileStorage.__file_path, "r") as fl:
+                my_obj = json.load(fl)
+                for key, value in my_obj.items():
+                    self.__objects[key] = BaseModel(**value)
+        except FileNotFoundError:
+            pass
