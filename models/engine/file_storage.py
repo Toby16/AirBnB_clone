@@ -48,10 +48,12 @@ class FileStorage:
         The objects are created from dictionaries
             using their respective class constructors.
         """
+
         if os.path.exists(self.__file_path):
-            with open(self.__file_path, "r") as file:
+            with open(self.__file_path, "r", encoding="utf-8") as file:
                 object_dict = json.load(file)
                 for key, value in object_dict.items():
                     class_name, obj_id = key.split(".")
                     obj_cls = eval(class_name)
+                    # self.new(obj_cls(**value))
                     self.__objects[key] = obj_cls(**value)
