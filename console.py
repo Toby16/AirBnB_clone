@@ -74,6 +74,9 @@ class HBNBCommand(cmd.Cmd):
                     based on the class name and id
                 """
                 print(instance[key])
+
+                # print(instance[key].id)
+                # print(instance[key].created_at)
             else:
                 print("** no instance found **")
 
@@ -135,6 +138,54 @@ class HBNBCommand(cmd.Cmd):
             if class name doesn't exist
             """
             print("** class doesn't exist **")
+
+    def do_update(self, arg):
+        """Updates an instance based on the class name and id
+        by adding or updating attribute (save the change into the JSON file)
+        """
+        args = arg.split()
+        # check if class name is missing
+        if not args:
+            print("** class name missing **")
+        elif args[0] != BaseModel.__name__:
+            # check if the class name doesn't exist
+            print("** class doesn't exist **")
+        elif len(args) < 2:
+            # check if instance id is missing
+            print("** instance id missing **")
+        else:
+            class_name = args[0]
+            instance_id = args[1]
+            key = "{}.{}".format(class_name, instance_id)
+            instance = storage.all()
+
+            if key not in instance:
+                # check if instance is not found
+                print("** no instance found **")
+            elif len(args) < 3:
+                # check if attribute name is missing
+                print("** attribute name missing **")
+            elif len(args) < 4:
+                # check if value for the attribute name doesn't exist
+                print("** value missing **")
+            else:
+                # get the attribute name and value
+                attribute_name = args[2]
+                attribute_value = args[3]
+
+                # cast the value to the correct type
+                try:
+                    attribute_value = eval(attribute_value)
+                except (NameError, SyntaxError, TypeError, ValueError):
+                    # eval can raise a lot of error
+                    #   but there are the common ones
+                    pass
+
+                # update the attribute value of the instance
+                instance[key].__dict__[attribute_name] = attribute_value
+
+                # save changes to json file
+                instance[key].save()
 
 
 if __name__ == "__main__":
