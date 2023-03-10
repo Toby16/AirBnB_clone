@@ -48,13 +48,14 @@ class BaseModel:
             self.created_at = datetime.datetime.now()
             self.updated_at = datetime.datetime.now()
             # add a call to the method new(self) on storage
-            models.storage.new(self)
+            # models.storage.new(self)
 
     def save(self):
         """
         Updates the 'updated_at' timestamp to the current time.
         """
         self.updated_at = datetime.datetime.now()
+        models.storage.new(self)
         # call save(self) method of storage
         models.storage.save()
 
