@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
         """Creates a new instance of BaseModel
         saves it (to the JSON file) and prints the id
         """
-        if not arg:
+        if arg == "":
             # check if class name is missing
             print("** class name missing **")
         elif arg not in [BaseModel.__name__, User.__name__]:
@@ -60,7 +60,7 @@ class HBNBCommand(cmd.Cmd):
         based on the class name and id
         """
         args = arg.split()
-        if not args:
+        if len(args) == 0:
             # check if class name is missing
             print("** class name missing **")
         elif args[0] not in [BaseModel.__name__, User.__name__]:
