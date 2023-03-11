@@ -6,6 +6,8 @@ Console
 from models.base_model import BaseModel
 from models import storage
 import cmd
+from models.user import User
+from models import base_model
 
 
 class HBNBCommand(cmd.Cmd):
@@ -36,16 +38,22 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             # check if class name is missing
             print("** class name missing **")
-        elif arg != BaseModel.__name__:
+        elif arg not in [BaseModel.__name__, User.__name__]:
             # check if class name is missing
             print("** class doesn't exist **")
         else:
+            model_class = getattr(base_model, arg)
+            model_instance = model_class()
+            model_instance.save()
+            print(model_instance.id)
+            """
             # create new instance of BaseModel
             model_value = BaseModel()
             # save it to json file
             model_value.save()
             # print the id
             print(model_value.id)
+            """
 
     def do_show(self, arg):
         """Prints the string representation of an instance
@@ -55,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             # check if class name is missing
             print("** class name missing **")
-        elif args[0] != BaseModel.__name__:
+        elif args[0] not in [BaseModel.__name__, User.__name__]:
             # check if class name doesn't exist
             print("** class doesn't exist **")
         elif len(args) < 2:
@@ -89,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             # check if class name is missing
             print("** class name missing **")
-        elif args[0] != BaseModel.__name__:
+        elif args[0] not in [BaseModel.__name__, User.__name__]:
             # check if class name doesn't exist
             print("** class doesn't exist **")
         elif len(args) < 2:
@@ -124,14 +132,14 @@ class HBNBCommand(cmd.Cmd):
                 lst.append(str(instance[key]))
             # print all instances as string in list
             print(lst)
-        elif args[0] == BaseModel.__name__:
+        elif args[0] in [BaseModel.__name__, User.__name__]:
             lst = []
             for key in instance:
                 class_name, id_val = key.split(".")
-                # check if instance class is same as BaseModel class
-                if class_name == BaseModel.__name__:
+                # check if instance class is same as input class name
+                if class_name == args[0]:
                     lst.append(str(instance[key]))
-            # print all instances of BaseModel as string in list
+            # print all instances of input class as string in list
             print(lst)
         else:
             """
@@ -147,7 +155,7 @@ class HBNBCommand(cmd.Cmd):
         # check if class name is missing
         if not args:
             print("** class name missing **")
-        elif args[0] != BaseModel.__name__:
+        elif args[0] not in [BaseModel.__name__, User.__name__]:
             # check if the class name doesn't exist
             print("** class doesn't exist **")
         elif len(args) < 2:
