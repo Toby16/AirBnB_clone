@@ -3,7 +3,7 @@
 import json
 from models.base_model import BaseModel
 import os
-
+from models.user import User
 
 class FileStorage:
     """
@@ -48,12 +48,19 @@ class FileStorage:
         The objects are created from dictionaries
             using their respective class constructors.
         """
-
+        # check if the file path exists
         if os.path.exists(self.__file_path):
             with open(self.__file_path, "r", encoding="utf-8") as file:
+                # load the json data into a dictionary
                 object_dict = json.load(file)
                 for key, value in object_dict.items():
                     class_name, obj_id = key.split(".")
-                    obj_cls = eval(class_name)
+                    if class_name == User.__name__:
+                        # if class name is 'User',
+                        #   use the 'User' class as the object constructor
+                        obj_cls = User
+                    else:
+                        # if not, use eval to dynamically get the class constructor
+                        obj_cls = eval(class_name)
                     # self.new(obj_cls(**value))
                     self.__objects[key] = obj_cls(**value)
