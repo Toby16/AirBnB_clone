@@ -5,6 +5,7 @@ from models.base_model import BaseModel
 import os
 from models.user import User
 
+
 class FileStorage:
     """
     Class for storing and retrieving objects to/from a JSON file.
@@ -60,7 +61,8 @@ class FileStorage:
                         #   use the 'User' class as the object constructor
                         obj_cls = User
                     else:
-                        # if not, use eval to dynamically get the class constructor
+                        # if not, use eval
+                        #   to dynamically get the class constructor
                         obj_cls = eval(class_name)
                     # self.new(obj_cls(**value))
                     self.__objects[key] = obj_cls(**value)
