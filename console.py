@@ -44,7 +44,9 @@ class HBNBCommand(cmd.Cmd):
         else:
             model_class = getattr(base_model, arg)
             model_instance = model_class()
-            model_instance.save()
+            storage.new(model_instance)
+            storage.save()
+            # model_instance.save()
             print(model_instance.id)
             """
             # create new instance of BaseModel
@@ -112,6 +114,7 @@ class HBNBCommand(cmd.Cmd):
 
             if key in instance:
                 # delete the instance from storage
+                # instance.pop(key)
                 del instance[key]
                 # save changes to json file
                 storage.save()
@@ -126,7 +129,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         instance = storage.all()
         # check if class name is missing
-        if not args:
+        if len(args) == 0:
             lst = []
             for key in instance:
                 lst.append(str(instance[key]))
@@ -153,7 +156,7 @@ class HBNBCommand(cmd.Cmd):
         """
         args = arg.split()
         # check if class name is missing
-        if not args:
+        if len(args) == 0:
             print("** class name missing **")
         elif args[0] not in [BaseModel.__name__, User.__name__]:
             # check if the class name doesn't exist
