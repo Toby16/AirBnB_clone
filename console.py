@@ -43,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
             # check if class name is missing
             print("** class doesn't exist **")
         else:
-            #check if class name is 'BaseModel'
+            # check if class name is 'BaseModel'
             if arg == BaseModel.__name__:
                 model_class = getattr(base_model, arg)
             # check if class name is 'User'
