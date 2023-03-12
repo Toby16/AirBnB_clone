@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 from models.base_model import BaseModel
+import datetime
+import uuid
 
 
 class User(BaseModel):
