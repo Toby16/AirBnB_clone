@@ -4,10 +4,11 @@ Console
     contains the entry point of the command interpreter
 """
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 import cmd
-from models.user import User
 from models import base_model
+from models import user
 
 
 class HBNBCommand(cmd.Cmd):
@@ -42,7 +43,12 @@ class HBNBCommand(cmd.Cmd):
             # check if class name is missing
             print("** class doesn't exist **")
         else:
-            model_class = getattr(base_model, arg)
+            #check if class name is 'BaseModel'
+            if arg == BaseModel.__name__:
+                model_class = getattr(base_model, arg)
+            # check if class name is 'User'
+            elif arg == User.__name__:
+                model_class = getattr(user, arg)
             model_instance = model_class()
             storage.new(model_instance)
             storage.save()
