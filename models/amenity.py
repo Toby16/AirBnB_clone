@@ -13,9 +13,3 @@ class Amenity(BaseModel):
         name: name of the Anemity
     """
     name = ""
-
-    def __init__(self, *args, **kwargs):
-        """
-        Initializes a new instance of User.
-        """
-        super().__init__(*args, **kwargs)
