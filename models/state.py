@@ -14,3 +14,9 @@ class State(BaseModel):
         name: Name of the state
     """
     name = ""
+
+    def __init__(self, *args, **kwargs):
+        """
+        Initializes a new instance of User.
+        """
+        super().__init__(*args, **kwargs)
