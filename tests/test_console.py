@@ -42,14 +42,13 @@ class TestHBNBCommand(unittest.TestCase):
             s = 'Clear the screen\n'
             self.assertEqual(s, f.getvalue())
 
-    """
+    #
     def test_help_show(self):
         # Tests show
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help show")
             s = 'prints the string representation of an instance\n'
             self.assertEqual(s, f.getvalue())
-    """
 
     def test_help_destroy(self):
         """Tests destroy"""
