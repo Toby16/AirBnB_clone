@@ -9,6 +9,11 @@ from models import storage
 import cmd
 from models import base_model
 from models import user
+from models.place import Place
+from models.city import City
+from models.state import State
+from models.review import Review
+from models.amenity import Amenity
 
 
 class HBNBCommand(cmd.Cmd):
@@ -16,6 +21,15 @@ class HBNBCommand(cmd.Cmd):
     HBNBCommand - class containing functions and attributes of the console
     """
     prompt = "(hbnb) "
+    __classes = {
+            'BaseModel': BaseModel,
+            'User': User,
+            'Place': Place,
+            'State': State,
+            'City': City,
+            'Amenity': Amenity,
+            'Review': Review
+            }
 
     def do_EOF(self, arg):
         """EOF command to exit the program
@@ -39,17 +53,21 @@ class HBNBCommand(cmd.Cmd):
         if arg == "":
             # check if class name is missing
             print("** class name missing **")
-        elif arg not in [BaseModel.__name__, User.__name__]:
+        # elif arg not in [BaseModel.__name__, User.__name__]:
+        elif arg not in HBNBCommand.__classes:
             # check if class name is missing
             print("** class doesn't exist **")
         else:
+            """
             # check if class name is 'BaseModel'
             if arg == BaseModel.__name__:
                 model_class = getattr(base_model, arg)
             # check if class name is 'User'
             elif arg == User.__name__:
                 model_class = getattr(user, arg)
-            model_instance = model_class()
+            """
+            model_instance = HBNBCommand.__classes[arg]()
+            # model_instance = model_class()
             storage.new(model_instance)
             storage.save()
             # model_instance.save()
@@ -71,7 +89,8 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             # check if class name is missing
             print("** class name missing **")
-        elif args[0] not in [BaseModel.__name__, User.__name__]:
+        # elif args[0] not in [BaseModel.__name__, User.__name__]:
+        elif args[0] not in HBNBCommand.__classes:
             # check if class name doesn't exist
             print("** class doesn't exist **")
         elif len(args) < 2:
@@ -105,7 +124,8 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             # check if class name is missing
             print("** class name missing **")
-        elif args[0] not in [BaseModel.__name__, User.__name__]:
+        # elif args[0] not in [BaseModel.__name__, User.__name__]:
+        elif args[0] not in HBNBCommand.__classes:
             # check if class name doesn't exist
             print("** class doesn't exist **")
         elif len(args) < 2:
@@ -141,7 +161,8 @@ class HBNBCommand(cmd.Cmd):
                 lst.append(str(instance[key]))
             # print all instances as string in list
             print(lst)
-        elif args[0] in [BaseModel.__name__, User.__name__]:
+        # elif args[0] in [BaseModel.__name__, User.__name__]:
+        elif args[0] in HBNBCommand.__classes:
             lst = []
             for key in instance:
                 class_name, id_val = key.split(".")
@@ -164,7 +185,8 @@ class HBNBCommand(cmd.Cmd):
         # check if class name is missing
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] not in [BaseModel.__name__, User.__name__]:
+        # elif args[0] not in [BaseModel.__name__, User.__name__]:
+        elif args[0] not in HBNBCommand.__classes:
             # check if the class name doesn't exist
             print("** class doesn't exist **")
         elif len(args) < 2:
