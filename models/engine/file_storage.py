@@ -24,13 +24,18 @@ class FileStorage:
             "Place": Place,
             "Review": Review
             }
+    __file_path = "file.json"
+    __objects = {}
 
     def __init__(self):
         """
         Initializes the file path and objects dictionary.
         """
+        """
         self.__file_path = "file.json"
         self.__objects = {}
+        """
+        pass
 
     def all(self):
         """
@@ -45,7 +50,8 @@ class FileStorage:
             obj: An object to be added to the dictionary.
         """
         key = "{}.{}".format(obj.__class__.__name__, obj.id)
-        self.__objects[key] = obj
+        FileStorage.__objects[key] = obj
+        # self.__objects[key] = obj
 
     def save(self):
         """
@@ -53,9 +59,14 @@ class FileStorage:
         The objects are converted to dictionaries
             using their `to_dict` method before being saved.
         """
-        with open(self.__file_path, "w", encoding="utf-8") as file:
+        # with open(self.__file_path, "w", encoding="utf-8") as file:
+        with open(FileStorage.__file_path, "w", encoding="utf-8") as file:
+            dict_value = {key: value.to_dict() for key,
+                          value in FileStorage.__objects.items()}
+            """
             dict_value = {key: value.to_dict() for key,
                           value in self.__objects.items()}
+            """
             json.dump(dict_value, file)
 
     def reload(self):
@@ -65,12 +76,16 @@ class FileStorage:
             using their respective class constructors.
         """
         # check if the file path exists
-        if os.path.exists(self.__file_path):
-            with open(self.__file_path, "r", encoding="utf-8") as file:
+        # if os.path.exists(self.__file_path):
+        if os.path.exists(FileStorage.__file_path):
+            # with open(self.__file_path, "r", encoding="utf-8") as file:
+            with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
                 # load the json data into a dictionary
                 object_dict = json.load(file)
                 for key, value in object_dict.items():
                     class_name, obj_id = key.split(".")
-                    obj_cls = self.__classes.get(class_name)
+                    obj_cls = FileStorage.__classes.get(class_name)
+                    # obj_cls = self.__classes.get(class_name)
                     if obj_cls is not None:
-                        self.__objects[key] = obj_cls(**value)
+                        FileStorage.__objects[key] = obj_cls(**value)
+                        # self.__objects[key] = obj_cls(**value)
