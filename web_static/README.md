@@ -9,3 +9,4 @@
 ## Conclusion
 <p>Building a clone of a complex website like Airbnb requires a good understanding of HTML and CSS.</p>
 <p>This project will help me improve my skills in front-end development and give me practical experience in building a real-world web application.</p>
+<p>Every HTML file is W3C compliant and validated with the W3C-Validator.</p>
